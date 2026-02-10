@@ -25,8 +25,7 @@ Um gerenciador moderno e intuitivo para organizar e acessar suas páginas web fa
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/gerenciador-de-paginas.git
-cd gerenciador-de-paginas
+https://github.com/ElissonAmaro/gerenciador-de-paginas-web.git
 ```
 
 2. Instale as dependências:
