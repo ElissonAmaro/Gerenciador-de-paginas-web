@@ -1,8 +1,8 @@
-# 🌐 Gerenciador de Páginas Web
+# Gerenciador de Páginas Web
 
 Um gerenciador moderno e intuitivo para organizar e acessar suas páginas web favoritas. Criado com React, Vite e TailwindCSS para uma experiência de usuário fluida e responsiva.
 
-## ✨ Características
+## Características
 
 - **Interface Moderna**: Design limpo e responsivo com Tailwind CSS
 - **Organização por Categorias**: Organize suas páginas por YouTube, LinkedIn, GitHub, Google e outras
@@ -13,14 +13,14 @@ Um gerenciador moderno e intuitivo para organizar e acessar suas páginas web fa
 - **Favicons Automáticos**: Exibição automática dos ícones dos sites
 - **Copiar URLs**: Copie links para a área de transferência com um clique
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Frontend**: React 19 + Vite
 - **Estilização**: TailwindCSS 4.1
 - **Armazenamento Local**: localStorage para persistência
 - **Linting**: ESLint com regras modernas
 
-## 📦 Instalação
+## Instalação
 
 1. Clone o repositório:
 
@@ -43,11 +43,11 @@ npm run dev
 
 4. Abra [http://localhost:5173](http://localhost:5173) no seu navegador.
 
-## 🔧 Scripts Disponíveis
+## Scripts Disponíveis
 
 - `npm run dev` - Inicia o servidor de desenvolvimento
 
-## 📱 Funcionalidades
+## Funcionalidades
 
 ### Adicionar Páginas
 
@@ -71,11 +71,11 @@ npm run dev
 - **Exportar**: Salve todas suas configurações em um arquivo JSON
 - **Importar**: Restaure suas páginas de um backup anterior
 
-## 💾 Armazenamento
+## Armazenamento
 
 O projeto utiliza localStorage para persistir dados localmente:
 
-## 🛠️ Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 src/
@@ -92,7 +92,7 @@ src/
 └── index.css          # Estilos globais
 ```
 
-## 🖼️ Galeria de Imagens
+## Galeria de Imagens
 
 - **Pagina Inicial**
 
