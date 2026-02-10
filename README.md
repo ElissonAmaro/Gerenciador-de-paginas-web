@@ -1,16 +1,109 @@
-# React + Vite
+# 🌐 Gerenciador de Páginas Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um gerenciador moderno e intuitivo para organizar e acessar suas páginas web favoritas. Criado com React, Vite e TailwindCSS para uma experiência de usuário fluida e responsiva.
 
-Currently, two official plugins are available:
+## ✨ Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interface Moderna**: Design limpo e responsivo com Tailwind CSS
+- **Organização por Categorias**: Organize suas páginas por YouTube, LinkedIn, GitHub, Google e outras
+- **Busca Rápida**: Sistema de busca em tempo real para encontrar páginas facilmente
+- **Sub-abas Personalizadas**: Adicione múltiplas abas para cada página principal
+- **Salvamento Automático**: Todos os dados são salvos automaticamente no navegador
+- **Exportar/Importar**: Faça backup e restaure suas configurações
+- **Favicons Automáticos**: Exibição automática dos ícones dos sites
+- **Copiar URLs**: Copie links para a área de transferência com um clique
 
-## React Compiler
+## 🚀 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React 19 + Vite
+- **Estilização**: TailwindCSS 4.1
+- **Armazenamento Local**: localStorage para persistência
+- **Linting**: ESLint com regras modernas
 
-## Expanding the ESLint configuration
+## 📦 Instalação
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/gerenciador-de-paginas.git
+cd gerenciador-de-paginas
+```
+
+2. Instale as dependências:
+
+```bash
+npm install
+```
+
+3. Execute o projeto em modo desenvolvimento:
+
+```bash
+npm run dev
+```
+
+4. Abra [http://localhost:5173](http://localhost:5173) no seu navegador.
+
+## 🔧 Scripts Disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+
+## 📱 Funcionalidades
+
+### Adicionar Páginas
+
+- Clique no botão "Nova Página"
+- Preencha o título e URL
+- A página será salva automaticamente com favicon
+
+### Gerenciar Sub-abas
+
+- Cada página pode ter múltiplas sub-abas
+- Adicione links relacionados ou seções específicas
+- Organize melhor seus recursos
+
+### Busca e Filtros
+
+- Use a barra de busca para encontrar páginas rapidamente
+- Filtragem em tempo real por título
+
+### Exportar/Importar
+
+- **Exportar**: Salve todas suas configurações em um arquivo JSON
+- **Importar**: Restaure suas páginas de um backup anterior
+
+## 💾 Armazenamento
+
+O projeto utiliza localStorage para persistir dados localmente:
+
+## 🛠️ Estrutura do Projeto
+
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── Modal.jsx       # Modal para adicionar páginas
+│   └── ModalExclusao.jsx # Modal de confirmação de exclusão
+├── hooks/              # Custom hooks
+│   └── useHome.js      # Lógica principal da aplicação
+├── pages/              # Páginas da aplicação
+│   └── Home.jsx        # Página principal
+├── assets/             # Recursos estáticos
+├── App.jsx             # Componente principal
+├── main.jsx           # Ponto de entrada
+└── index.css          # Estilos globais
+```
+
+## 🖼️ Galeria de Imagens
+
+- **Pagina Inicial**
+
+  ![Inicial](src/assets/Inicial.png)
+
+- **Adicionar Nova Aba**
+
+  ![Adicionar](src/assets/Adicionar.png)
+
+- **Adicionar Sub-Aba**
+
+  ![Adicionar Subpágina](src/assets/AdicionarSub_aba.png)
+
+## Autor: Elisson
