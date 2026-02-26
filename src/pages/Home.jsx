@@ -398,7 +398,7 @@ function SubTabModal({ isOpen, onClose, onSubmit }) {
                 name="title"
                 value={formData.title}
                 onChange={handleInputChange}
-                placeholder="Ex: Dashboard, Configurações..."
+                placeholder="Ex: Youtube, Google..."
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                 required
               />
@@ -418,7 +418,7 @@ function SubTabModal({ isOpen, onClose, onSubmit }) {
                 name="url"
                 value={formData.url}
                 onChange={handleInputChange}
-                placeholder="https://exemplo.com/subpagina"
+                placeholder="https://exemplo.com"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                 required
               />
