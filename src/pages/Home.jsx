@@ -2,7 +2,7 @@ import Modal from "../components/Modal";
 import { useState, useEffect } from "react";
 import ModalExcluir from "../components/ModalExclusao";
 import { useHome } from "../hooks/useHome";
-import { ImportExport } from "../components/import_export";
+import { ImportExport } from "../components/Importexport";
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const {
