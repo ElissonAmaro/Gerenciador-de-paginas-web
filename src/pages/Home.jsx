@@ -2,8 +2,9 @@ import Modal from "../components/Modal";
 import { useState, useEffect } from "react";
 import ModalExcluir from "../components/ModalExclusao";
 import { useHome } from "../hooks/useHome";
-
+import { ImportExport } from "../components/import_export";
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
   const {
     isOpen,
     setIsOpen,
@@ -27,6 +28,17 @@ export default function Home() {
     importSettings,
   } = useHome();
 
+  useEffect(() => {
+    // Verifica a largura da tela ao carregar e ao redimensionar
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // 768px é o breakpoint padrão 'md'
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 w-full h-screen flex flex-col">
       {/* Header Hero Section */}
@@ -42,155 +54,90 @@ export default function Home() {
           ></div>
         </div>
 
-        <div className="relative w-full flex items-center justify-center py-1 px-6 lg:py-6">
+        <div className="relative w-full flex items-center justify-center py-1 px-6 lg:py-6  ">
           <div className="text-center">
             {/* Main Title */}
-            <div className="flex items-center justify-center mb-4">
-            
-              <h1 className="text-5xl font-bold h-14 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+            <div className="flex flex-col items-center justify-center mb-4">
+              <h1
+                className={` font-bold h-14 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent ${isMobile ? "text-2xl" : "text-5xl"}`}
+              >
                 Gerenciador de Páginas Web
               </h1>
+              <p className="text-sm text-gray-500 max-w-md mx-auto">
+                Organize, gerencie e acesse todas as suas páginas favoritas.
+              </p>
             </div>
 
-            {/* <p className="text-xl text-gray-600 mb-2 font-light">
-                          
-                        </p> */}
-            <p className="text-sm text-gray-500 max-w-md mx-auto">
-              Organize, gerencie e acesse todas as suas páginas favoritas. 
-            </p>
-          </div>
-        </div>
+            {/* <p className="text-xl text-gray-600 mb-2 font-light"></p>  */}
 
-        {/* Controls */}
-        <div className="absolute top-6 right-6 flex flex-col items-end gap-3">
-          {/* Auto-save indicator */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-2 shadow-sm border border-white/20">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-xs text-gray-600 font-medium">Salvamento automático</span>
-          </div>
-
-          {/* Action buttons */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={exportSettings}
-              className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-green-600 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 flex items-center gap-2 shadow-sm border border-white/20 hover:shadow-md"
-              title="Exportar configurações"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                />
-              </svg>
-              Exportar
-            </button>
-
-            <label
-              className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-700 hover:text-blue-600 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 flex items-center gap-2 shadow-sm border border-white/20 hover:shadow-md cursor-pointer"
-              title="Importar configurações"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
-              Importar
-              <input
-                type="file"
-                accept=".json"
-                onChange={importSettings}
-                className="hidden"
-              />
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {/* Actions Section */}
-      <div className="relative -mt-4 mb-6 px-6 bg-[#eaecfd]">
-        <div className="max-w-2xl mx-auto">
-          <div className="backdrop-blur-sm rounded-xl shadow-sm border border-white/20 p-4">
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              {/* Search Bar */}
-              <div className="relative flex-1 min-w-0">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg
-                    className="h-4 w-4 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
+            {/* Actions Section */}
+            <div className="relative  mb-6 px-6 bg-[#eaecfd]">
+              <div className="max-w-2xl mx-auto">
+                <div className="backdrop-blur-sm rounded-xl shadow-sm border border-white/20 p-4">
+                  <div className="flex sm:flex-row items-center gap-3">
+                    {/* Search Bar */}
+                    <div className="relative flex-1 min-w-0">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg
+                          className="h-4 w-4 text-gray-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="w-full pl-10 pr-3 py-2.5 bg-white/60 border border-gray-200/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all text-sm text-gray-700 placeholder-gray-400"
+                        placeholder="Buscar páginas..."
+                      />
+                    </div>
+                    {/* Add Button */}
+                    <button
+                      className=" justify-center bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 whitespace-nowrap"
+                      onClick={() => setIsOpen(true)}
+                    >
+                      <span>{isMobile ? "+" : "+ Nova Página"}</span>
+                    </button>
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-10 pr-3 py-2.5 bg-white/60 border border-gray-200/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500/30 focus:border-blue-500/50 transition-all text-sm text-gray-700 placeholder-gray-400"
-                  placeholder="Buscar páginas..."
-                />
-              </div>
-
-              {/* Add Button */}
-              <button
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 whitespace-nowrap"
-                onClick={() => setIsOpen(true)}
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 4v16m8-8H4"
+                <div className="flex lg:hidden">
+                  <ImportExport
+                    exportSettings={exportSettings}
+                    importSettings={importSettings}
                   />
-                </svg>
-                <span>Nova Página</span>
-              </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div className="hidden lg:flex">
+          <ImportExport
+            exportSettings={exportSettings}
+            importSettings={importSettings}
+          />
+        </div>
       </div>
 
-      <div className="flex-1 overflow-auto bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="flex-1 overflow-auto bg-gradient-to-br mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-8">
           {/* Cards das páginas existentes */}
           {filter.map((page) => (
             <div
               key={page.id}
-              className="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col border border-gray-100 h-96 max-h-96 overflow-hidden"
+              className="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col border border-gray-100 h-96 max-h-96 overflow-hidden "
             >
               {/* Cabeçalho do Card */}
               <div className="p-4 border-b border-gray-100 flex justify-between items-center cursor-pointer bg-indigo-500/15 ">
-                <div
-                  className="flex items-center gap-3 flex-1 cursor-auto  "
-                  
-                >
+                <div className="flex items-center gap-3 flex-1 cursor-auto  ">
                   <img
                     alt={`Favicon de ${page.title}`}
                     className="w-6 h-6 rounded"

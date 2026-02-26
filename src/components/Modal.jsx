@@ -7,15 +7,6 @@ export default function Modal({ isOpen, onClose, onSubmit }) {
     category: "",
   });
 
-  const categories = [
-    { id: "youtube", name: "YouTube", color: "bg-red-500" },
-    { id: "linkedin", name: "LinkedIn", color: "bg-blue-600" },
-    { id: "github", name: "GitHub", color: "bg-gray-800" },
-    { id: "google", name: "Google", color: "bg-blue-500" },
-    { id: "outros", name: "Outros", color: "bg-gray-500" },
-    { id: "bootstrap", name: "Bootstrap", color: "bg-gray-500" },
-  ];
-
   // Limpa o formulário quando o modal abre
   useEffect(() => {
     if (isOpen) {
